@@ -14,6 +14,9 @@
             <br />
             <asp:Label ID="Label1" runat="server" Text="Sign in to ProClass"></asp:Label>
             <div>
+                <asp:RadioButton ID="RadioButton1" runat="server" GroupName="id" Text="教師" />
+                <asp:RadioButton ID="RadioButton2" runat="server" GroupName="id" Text="學生" />
+                <br />
                 <asp:Label ID="Label2" runat="server" Text="帳號:"></asp:Label>
                 <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                 <br />
