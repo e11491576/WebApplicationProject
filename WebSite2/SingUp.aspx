@@ -32,6 +32,9 @@
             <br />
             <br />
             <asp:Button ID="Button1" runat="server" Text="註冊" />
+            <br />
+            <br />
+            <asp:Label ID="Label1" runat="server"></asp:Label>
         </div>
     </form>
 </body>

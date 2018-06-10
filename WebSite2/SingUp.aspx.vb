@@ -5,7 +5,14 @@ Partial Class SingUp
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If Page.IsValid Then
 
+
+
+
+
+
+            Response.Redirect("SingIn.aspx")
         End If
     End Sub
+
 
 End Class
