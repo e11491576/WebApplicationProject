@@ -10,14 +10,16 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            學號 :
+            ID :
             <asp:TextBox ID="TextBox_ID" runat="server"></asp:TextBox>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBox_ID" Display="Dynamic" ErrorMessage="學號只可為數字或英文!" ForeColor="Red" ValidationExpression="\w+"></asp:RegularExpressionValidator>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox_ID" Display="Dynamic" ErrorMessage="必填!" ForeColor="Red"></asp:RequiredFieldValidator>
-            <br />
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBox_ID" Display="Dynamic" ErrorMessage="ID只可為數字或英文!" ForeColor="Red" ValidationExpression="\w+"></asp:RegularExpressionValidator>
+            &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox_ID" Display="Dynamic" ErrorMessage="必填!" ForeColor="Red"></asp:RequiredFieldValidator>
+            &nbsp;<br />
             <br />
             密碼 : <asp:TextBox ID="TextBox_Password" runat="server" TextMode="Password"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox_Password" Display="Dynamic" ErrorMessage="必填!" ForeColor="Red"></asp:RequiredFieldValidator>
+            &nbsp;
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="TextBox_Password" ErrorMessage="長度必須大於5位數! " ForeColor="Red" ValidationExpression="\d{6,20}"></asp:RegularExpressionValidator>
             <br />
             <br />
             確認密碼 :
@@ -68,8 +70,43 @@
                 </UpdateParameters>
             </asp:SqlDataSource>
             <br />
-            <asp:Label ID="LabelMessage" runat="server"></asp:Label>
+            <asp:Label ID="LabelMessage" runat="server" ForeColor="Red"></asp:Label>
+            <br />
+            <br />
         </div>
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" DataKeyNames="StudentId" DataSourceID="SqlDataSource1" GridLines="Horizontal">
+            <Columns>
+                <asp:BoundField DataField="StudentId" HeaderText="StudentId" ReadOnly="True" SortExpression="StudentId" />
+                <asp:BoundField DataField="StudentName" HeaderText="StudentName" SortExpression="StudentName" />
+                <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
+            </Columns>
+            <FooterStyle BackColor="White" ForeColor="#333333" />
+            <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="White" ForeColor="#333333" />
+            <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F7F7F7" />
+            <SortedAscendingHeaderStyle BackColor="#487575" />
+            <SortedDescendingCellStyle BackColor="#E5E5E5" />
+            <SortedDescendingHeaderStyle BackColor="#275353" />
+        </asp:GridView>
+        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="TeacherId" DataSourceID="SqlDataSource2" GridLines="Vertical">
+            <AlternatingRowStyle BackColor="#DCDCDC" />
+            <Columns>
+                <asp:BoundField DataField="TeacherId" HeaderText="TeacherId" ReadOnly="True" SortExpression="TeacherId" />
+                <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
+                <asp:BoundField DataField="TeacherName" HeaderText="TeacherName" SortExpression="TeacherName" />
+            </Columns>
+            <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
+            <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+            <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
+            <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+            <SortedAscendingHeaderStyle BackColor="#0000A9" />
+            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+            <SortedDescendingHeaderStyle BackColor="#000065" />
+        </asp:GridView>
     </form>
 </body>
 </html>
