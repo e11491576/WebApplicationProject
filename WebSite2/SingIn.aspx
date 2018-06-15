@@ -27,6 +27,11 @@
                 <asp:Button ID="Button2" runat="server" Text="註冊" />
             </div>
         </div>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:testConnectionString %>" SelectCommand="SELECT * FROM [Student] WHERE ([StudentId] = @StudentId)">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="TextBox1" Name="StudentId" PropertyName="Text" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
     </form>
 </body>
 </html>
