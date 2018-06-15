@@ -14,22 +14,13 @@
         </div>
         <asp:Button ID="Button1" runat="server" Text="抽籤" />
         <p>
-            <asp:Label ID="Label1" runat="server"></asp:Label>
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField DataField="StudentId" HeaderText="StudentId" SortExpression="StudentId" />
+                </Columns>
+            </asp:GridView>
         </p>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:testConnectionString %>" DeleteCommand="DELETE FROM [Student] WHERE [StudentId] = @StudentId" InsertCommand="INSERT INTO [Student] ([StudentId], [StudentName], [Password]) VALUES (@StudentId, @StudentName, @Password)" SelectCommand="SELECT * FROM [Student]" UpdateCommand="UPDATE [Student] SET [StudentName] = @StudentName, [Password] = @Password WHERE [StudentId] = @StudentId">
-            <DeleteParameters>
-                <asp:Parameter Name="StudentId" Type="String" />
-            </DeleteParameters>
-            <InsertParameters>
-                <asp:Parameter Name="StudentId" Type="String" />
-                <asp:Parameter Name="StudentName" Type="String" />
-                <asp:Parameter Name="Password" Type="String" />
-            </InsertParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="StudentName" Type="String" />
-                <asp:Parameter Name="Password" Type="String" />
-                <asp:Parameter Name="StudentId" Type="String" />
-            </UpdateParameters>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:testConnectionString %>">
         </asp:SqlDataSource>
     </form>
 </body>
